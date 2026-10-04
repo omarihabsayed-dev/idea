@@ -1,0 +1,15 @@
+<x-layout>
+    <x-form title="Register an account" description="Start tracking your ideas today.">
+        <form action="{{ route('register.store') }}" method="POST">
+        @csrf
+        <div class="space-y-4">
+        <x-form.field name="name" label="Name"/>
+        <x-form.field name="email" label="Email" type="email"/>
+        <x-form.field name="password" label="Password" type="password"/>
+        </div>
+        <button type="submit" class="btn mt-2 h-10 w-full">
+            Create Account
+        </button>
+        </form>
+    </x-form>
+</x-layout>

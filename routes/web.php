@@ -2,11 +2,14 @@
 
 declare(strict_types=1);
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionsController;
+use Illuminate\Support\Facades\Route;
 
-Route::get('/', fn () => view('welcome'))->name('home');
+Route::redirect('/', '/ideas')->name('home');
+Route::get('/ideas', [IdeaController::class, 'index'])->name('ideas.index')->middleware('auth');
+Route::get('/ideas/{idea}', [IdeaController::class, 'show'])->name('ideas.show')->middleware('auth');
 Route::get('/register', [RegisteredUserController::class, 'create'])->name('register')->middleware('guest');
 Route::post('/register', [RegisteredUserController::class, 'store'])->name('register.store')->middleware('guest');
 

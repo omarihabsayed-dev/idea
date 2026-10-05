@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 test('Registers a user', function () {
     visit('/regsiter')
         ->fill('name', 'musabihab')

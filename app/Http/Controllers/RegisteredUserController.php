@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class RegisteredUserController extends Controller
 {
@@ -28,7 +30,7 @@ class RegisteredUserController extends Controller
         ]);
         Auth::login($user);
         $request->session()->regenerate();
+
         return redirect()->route('home')->with('success', 'Registration complete!');
     }
 }
-    

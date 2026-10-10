@@ -30,7 +30,7 @@ class Idea extends Model
 
     public function steps(): HasMany
     {
-        return $this->hasMany(Step::class);
+        return $this->hasMany(Step::class)->orderBy('id');
     }
 
     protected function casts(): array

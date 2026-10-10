@@ -6,6 +6,7 @@ use App\Http\Controllers\IdeaController;
 use App\Http\Controllers\IdeaImageController;
 use App\Http\Controllers\RegisteredUserController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StepController;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,5 @@ Route::post('/register', [RegisteredUserController::class, 'store'])->name('regi
 Route::get('/login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
 Route::post('/login', [SessionsController::class, 'store'])->name('login.store')->middleware('guest');
 Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout')->middleware('auth');
+Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
+Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update')->middleware('auth');

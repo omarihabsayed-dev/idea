@@ -7,7 +7,7 @@
         @if($type === 'textarea')
             <textarea name="{{ $name }}" id="{{ $name }}" class="textarea" {{ $attributes }}>{{ old($name, $value) }}</textarea>
         @else
-            <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" value="{{ old($name, $value) }}" class="input" {{ $attributes }} required>
+            <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" value="{{ old($name, $value) }}" class="input" {{ $attributes }}>
         @endif
         <x-form.error name="{{ $name }}"/>
     </div>
